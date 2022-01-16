@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/xml"
 	"fmt"
+	"github.com/alfu32/txxml/text"
 )
 
 type Entity struct {
@@ -34,5 +35,13 @@ func main() {
 	if entXml, err := xml.Marshal(ent); err == nil {
 		fmt.Println(string(entXml))
 	}
+	tt:=text.Text{}
+	tt=tt.Init("some text words").
+	  Separators(" ")
 
+	fmt.Printf("%+v\n",tt)
+	fmt.Printf("ToLowerSnake [%s]\n",tt.ToLowerSnake())
+	fmt.Printf("ToUpperSnake [%s]\n",tt.ToUpperSnake())
+	fmt.Printf("ToLowerKebap [%s]\n",tt.ToLowerKebap())
+	fmt.Printf("ToUpperKebap [%s]\n",tt.ToUpperKebap())
 }
